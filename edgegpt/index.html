@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Interaction with GPT-3</title>
+</head>
+<body>
+    <h1>Speech Interaction with GPT-3</h1>
+    <form method="POST">
+        <button type="submit">Start Speaking</button>
+    </form>
+    {% if transcribed_text %}
+        <p>Transcribed Text: {{ transcribed_text }}</p>
+    {% endif %}
+    {% if gpt_response_text %}
+        <p>GPT Response: {{ gpt_response_text }}</p>
+        <audio controls>
+            <source src="static/gpt_response.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+</body>
+</html>
